@@ -1,0 +1,8 @@
+{
+  var a = "outer";
+  {
+     a = a;
+  }
+  print a;
+}
+
