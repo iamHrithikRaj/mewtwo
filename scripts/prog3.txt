@@ -1,0 +1,35 @@
+
+print("printing using for loop");
+for(var i=0;i<10;i = i + 1){
+    print i;
+}
+
+
+print(" ");
+print("printing using while loop");
+var x = 9;
+while(x >= 0){
+    print x;
+    x = x - 1;
+}
+
+
+print(" ");
+print("demonstartion of if-else statements");
+var age = 17;
+if(age >= 18){
+    print "you can vote!";
+}else{
+    print "not so early :)";
+}
+
+
+
+print(" ");
+print("demonstartion of logical operators");
+var on_bit = 1;
+var off_bit = 0;
+
+print on_bit and off_bit;
+print on_bit or off_bit;
+print !on_bit;

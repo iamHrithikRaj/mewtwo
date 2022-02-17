@@ -1,5 +1,5 @@
 var breakfast = "hrithik";
 var beverage = "raj";
-breakfast = "tera bhai hrithik " + beverage;
+breakfast = "hello, hrithik " + beverage;
 
 print breakfast;
