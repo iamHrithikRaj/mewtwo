@@ -4,7 +4,9 @@ age = 23;
 {
   var a = "outer";
   {
-     a = a;
+     print a;
+     a = "inner";
+     print a;
   }
   print a;
 }

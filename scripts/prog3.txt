@@ -16,7 +16,7 @@ while(x >= 0){
 
 print(" ");
 print("demonstartion of if-else statements");
-var age = 17;
+var age = 20;
 if(age >= 18){
     print "you can vote!";
 }else{
