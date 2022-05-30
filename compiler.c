@@ -462,6 +462,14 @@ static void defineVariable(uint8_t global)
     emitBytes(OP_DEFINE_GLOBAL, global);
 }
 
+static Token syntheticToken(const char *text)
+{
+    Token token;
+    token.start = text;
+    token.length = (int)strlen(text);
+    return token;
+}
+
 static uint8_t argumentList()
 {
     uint8_t argCount = 0;
@@ -679,6 +687,11 @@ static void namedVariable(Token name, bool canAssign)
     {
         emitBytes(getOp, (uint8_t)arg);
     }
+}
+
+static void variable(bool canAssign)
+{
+    namedVariable(parser.previous, canAssign);
 }
 
 static void classDeclaration()
@@ -993,19 +1006,6 @@ static void string(bool canAssign)
                                     parser.previous.length - 2)));
 }
 
-static void variable(bool canAssign)
-{
-    namedVariable(parser.previous, canAssign);
-}
-
-static Token syntheticToken(const char *text)
-{
-    Token token;
-    token.start = text;
-    token.length = (int)strlen(text);
-    return token;
-}
-
 static void super_(bool canAssign)
 {
     if (currentClass == NULL)
@@ -1101,7 +1101,6 @@ ParseRule rules[] = {
     [TOKEN_OR] = {NULL, or_, PREC_OR},
     [TOKEN_PRINT] = {NULL, NULL, PREC_NONE},
     [TOKEN_RETURN] = {NULL, NULL, PREC_NONE},
-    [TOKEN_SUPER] = {NULL, NULL, PREC_NONE},
     [TOKEN_SUPER] = {super_, NULL, PREC_NONE},
     [TOKEN_THIS] = {this_, NULL, PREC_NONE},
     [TOKEN_TRUE] = {literal, NULL, PREC_NONE},

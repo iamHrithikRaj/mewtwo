@@ -34,7 +34,7 @@ static int jumpInstruction(const char *name, int sign,
     uint16_t jump = (uint16_t)(chunk->code[offset + 1] << 8);
     jump |= chunk->code[offset + 2];
     // printf("%-16s %4d -> %d\n", name, offset,
-    //        offset + 3 + sign * jump);
+        //    offset + 3 + sign * jump);
     return offset + 3;
 }
 
@@ -53,9 +53,9 @@ static int invokeInstruction(const char *name, Chunk *chunk,
 {
     uint8_t constant = chunk->code[offset + 1];
     uint8_t argCount = chunk->code[offset + 2];
-    printf("%-16s (%d args) %4d '", name, argCount, constant);
-    printValue(chunk->constants.values[constant]);
-    printf("'\n");
+    // printf("%-16s (%d args) %4d '", name, argCount, constant);
+    // printValue(chunk->constants.values[constant]);
+    // printf("'\n");
     return offset + 3;
 }
 
